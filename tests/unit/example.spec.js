@@ -1,13 +1,8 @@
-import { expect } from 'chai'
-import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
-
 describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
-    })
-    expect(wrapper.text()).to.include(msg)
-  })
-})
+  it('actions', () => {
+    const spy = sinon.spy();
+    spy('Hello');
+    expect(spy).to.have.been.calledWith("Hello");
+    expect(spy.calledWith("Hello")).to.be.ok;
+  });
+});
